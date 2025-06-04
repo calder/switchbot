@@ -1,0 +1,13 @@
+[package]
+name = "switchbot"
+version = "0.1.0"
+rust-version = "1.85"
+edition = "2024"
+
+[dependencies]
+anyhow = { version = "*" }
+reqwest = { version = "*", features = ["json"] }
+serde = { version = "*", features = ["derive"] }
+
+[dev-dependencies]
+tokio = { version = "*", features = ["macros", "rt-multi-thread"] }

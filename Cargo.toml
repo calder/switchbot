@@ -8,6 +8,7 @@ edition = "2024"
 anyhow = { version = "*" }
 reqwest = { version = "*", features = ["json"] }
 serde = { version = "*", features = ["derive"] }
+serde_json = { version = "*" }
 
 [dev-dependencies]
 tokio = { version = "*", features = ["macros", "rt-multi-thread"] }

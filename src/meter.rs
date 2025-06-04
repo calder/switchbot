@@ -18,6 +18,7 @@ pub struct MeterStatus {
 }
 
 impl SwitchBot {
+    /// Get meter status.
     pub async fn get_meter_status(&self, id: &str) -> Result<MeterStatus> {
         self.get(&format!("v1.1/devices/{}/status", id)).await
     }

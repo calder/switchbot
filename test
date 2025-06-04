@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -exo pipefail
+
+cargo fmt --check
+cargo check --all-features --all-targets
+cargo clippy --all-features --all-targets -- -Dwarnings
+cargo build --release --all-features --all-targets
+
+set +x
+for f in examples/*.rs; do
+    example=$(echo $f | sed 's|examples/||' | sed 's|.rs||')
+    printf "\n\e[1;36m============================================================\e[0m\n"
+    printf "\e[1;36m$example\e[0m\n"
+    printf "\e[1;36m============================================================\e[0m\n"
+    cargo run --release --all-features --example=$example
+done
